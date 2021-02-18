@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">Ejercicios con el DOM</h1>
+    <aside class="panel">
+      <a href="#section-1">Seccion 1</a>
+      <a href="#section-2">Sección 2</a>
+      <a href="#section-3">Sección 3</a>
+      <a href="#section-4">Sección 4</a>
+      <a href="#section-5">Sección 5</a>
+    </aside>
+    <button class="panel-btn hamburger hamburger--elastic" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <main class="main">
+      <section class="section" id="section-1">
+        <h3 class="title">Sección 1</h3>
+        <div id="reloj"></div>
+        <button id="iniciarReloj">Iniciar Reloj</button>
+        <button id="detenerReloj">Deneter Reloj</button>
+        <button id="iniciarAlarma">Iniciar Alarma</button>
+        <button id="detenerAlarma">Detener Alarma</button>
+      </section>
+      <section class="section" id="section-2">
+        <h3 class="title">Sección 2</h3>
+        <h2>Evento del Teclado</h2>
+        <article class="stage">
+          <div class="ball"></div>
+        </article>
+      </section>
+      <section class="section" id="section-3">
+        <h3 class="title">Cuenta regresiva</h3>
+        <div id="countdown"></div>
+      </section>
+      <section class="section" id="section-4">
+        <h3 class="title">Sección 4</h3>
+      </section>
+      <section class="section" id="section-5">
+        <h3 class="title">Sección 5</h3>
+      </section>
+    </main>
+    <button class="scroll-top-btn hidden">&#11014;</button>
+    <script type="module" src="dom1.js"></script>
+</body>
+</html>

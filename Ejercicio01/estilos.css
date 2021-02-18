@@ -1,0 +1,45 @@
+:root{
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0 2rem;
+    background: url("./fondo.jpg");
+    background-size: 100vw 100vh;
+  }
+  h1{
+    font-family: 'Lato';
+    color: rgb(42, 41, 43);
+  }
+  p{
+    font-family: 'Montserrat';
+    font-weight: 400;
+  }
+  .center {
+    text-align: center;
+  }
+  .container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(245, 245, 255);
+    padding: 1rem 2rem;
+    border: .5px solid rgb(199, 198, 198);
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: .5rem .75rem;
+    background-color: rgb(19, 114, 117);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    transition: background-color .2s ease;
+  }
+  button:hover {
+    background-color: rgb(131, 211, 19);
+  }
