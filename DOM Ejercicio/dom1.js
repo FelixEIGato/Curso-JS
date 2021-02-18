@@ -1,7 +1,9 @@
 
 import {moveBall,shortcuts} from "./teclado.js"; 
 import countdown from "./cuenta_regresiva.js";
-import scrollTopButton from "./boton_scroll"
+import scrollTopButton from "./boton_scroll.js";
+import tema_oscuro from "./tema_oscuro.js";
+import darkTheme from "./tema_oscuro.js";
 
 const d = document;
 
@@ -34,7 +36,7 @@ function timer(inicio,parar,alarmaStart,alarmaStop){
         if(e.target.matches(parar)){
             clearTimeout(reloj);
             $reloj.textContent="";
-            document.querySelector(parar).disabled = false;
+            document.querySelector(inicio).disabled = false;
         }
 
         if(e.target.matches(alarmaStart)){
@@ -59,6 +61,7 @@ document.addEventListener("DOMContentLoaded",(e)=>{
 
     countdown("countdown","August 25, 2021","Feliz Cumpleaños");
     scrollTopButton(".scroll-top-btn");
+    darkTheme(".dark-theme-btn","dark-mode");
 })
 
 document.addEventListener("keydown", e=>{
