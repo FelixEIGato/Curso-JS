@@ -2,8 +2,10 @@
 import {moveBall,shortcuts} from "./teclado.js"; 
 import countdown from "./cuenta_regresiva.js";
 import scrollTopButton from "./boton_scroll.js";
-import tema_oscuro from "./tema_oscuro.js";
 import darkTheme from "./tema_oscuro.js";
+import responsiveMedia from "./objeto_responsive.js";
+import responsiveTester from "./prueba_responsive.js";
+import userDeviceInfo from "./deteccion_dispositivos.js";
 
 const d = document;
 
@@ -61,7 +63,21 @@ document.addEventListener("DOMContentLoaded",(e)=>{
 
     countdown("countdown","August 25, 2021","Feliz Cumpleaños");
     scrollTopButton(".scroll-top-btn");
-    darkTheme(".dark-theme-btn","dark-mode");
+    responsiveMedia(
+        "youtube",
+        "(min-width: 1024px)",
+        '<a href="https://youtu.be/E0eM349w4SA" target="_blank rel="noopener">Ver Video</a>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/E0eM349w4SA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        );
+    responsiveMedia(
+        "gmaps",
+        "(min-width: 1024px)",
+        '<a href="https://g.page/MuseoLarco?share" target="_blank rel="noopener">Ver Mapa</a>',
+        '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31214.272752903737!2d-77.06932664900556!3d-12.058371086329183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c91a5000653d%3A0x1654d5501a2ea1e9!2sMuseo%20Larco!5e0!3m2!1ses!2spe!4v1613683622724!5m2!1ses!2spe" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
+        );
+
+    responsiveTester("responsive-tester");
+    userDeviceInfo("user-device");
 })
 
 document.addEventListener("keydown", e=>{
@@ -69,4 +85,5 @@ document.addEventListener("keydown", e=>{
     moveBall(e,".stage",".ball");
 })
 
+darkTheme(".dark-theme-btn","dark-mode");
 
