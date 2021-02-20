@@ -1,33 +1,28 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css";
 
+
+/* **********     Reset CSS     ********** */
 :root {
-  --primary-color: rgb(255, 208, 0);
-  --secondary-color: rgb(47, 47, 47);
-  --primary-modal-color: rgba(255, 208, 0, 0.8);
-  --secondary-modal-color: rgba(47, 47, 47, 0.8);
-  --font-family: "Trebuchet MS", sans-serif;
+  --main-font: sans-serif;
   --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
   --container-width: 1200px;
 }
 
-/* ******************  Reset  ****************** */
-
 html {
   box-sizing: border-box;
-  font-family: var(--font-family);
+  font-family: var(--main-font);
   font-size: var(--font-size);
   scroll-behavior: smooth;
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: inherit;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 body {
@@ -35,177 +30,300 @@ body {
   overflow-x: hidden;
 }
 
-/* ******************  Hamburguesa  ****************** */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
 
-.hamburger {
-  position: fixed;
-  right: 1vw;
-  bottom: 1vh;
-  z-index: 9999;
-  background-color: var(--primary-color);
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
+.flex-row-center {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  outline: 0;
-  border: 0;
 }
 
-/* ******************  Header  ****************** */
+/* **********     menu-hamburguesa     ********** */
 
-h1.title {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  margin: 0;
-  padding: 1rem;
-  width: 100%;
-  text-align: center;
-  position: fixed;
+.header {
+  position: sticky;
+  z-index: 997;
   top: 0;
-}
-
-
-
-/* ******************  Panel  ****************** */
-
-.panel {
-  background-color: var(--secondary-color);
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(-100%);
-  opacity: 0;
-  transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-.panel.is-active {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* ******************  Links  ****************** */
-
-.panel a {
-  text-decoration: none;
-  text-align: center;
-  font-weight: bold;
-  color: var(--primary-color);
-  font-size: 1.25rem;
-  width: 100%;
   padding: 1rem;
-  transition: all 0.35s ease;
+  background-color: var(--main-color);
+  color: var(--second-color);
 }
 
-.panel a:hover {
-  font-weight: bold;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+.header h1 {
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* ******************  Secciones  ****************** */
-
-.main .section {
-  min-height: 100vh;
-  padding: 1rem 2rem;
-  width: 100%;
-  max-width: var(--container-width);
+.section {
+  padding: 2rem;
   padding-top: 4rem;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100vh;
   text-align: center;
 }
 
-.section > h3,
-.section > div {
-  margin-left: auto;
-  margin-right: auto;
+.panel {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  background-color: var(--second-modal-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  /* De arriba */
+  transform: translate(0, -100%);
+  /* De abajo */
+  transform: translate(0, 100%);
+  /* De la derecha */
+  transform: translate(100%, 0);
+  /* De la izquierda */
+  transform: translate(-100%, 0);
 }
 
-/************************* Evento del clado ****************/
+.panel.is-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  visibility: visible;
+}
 
-.stage{
+.panel-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  right: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+}
+
+.menu {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.menu a {
+  padding: 2rem;
+  width: inherit;
+  display: block;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  font-weight: bold;
+  color: var(--second-color);
+  background-color: var(--main-modal-color);
+}
+
+/* **********     Eventos del Teclado     ********** */
+
+.stage {
   display: flex;
   min-height: 50vh;
-  background-color: var(--secondary-color);
+  background-color: var(--second-color);
 }
 
-.ball{
+.ball {
   margin: auto;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: var(--main-color);
 }
 
-/****************************** ScrollTopButton ***********************/
-
-.scroll-top-btn{
+/* **********     ScrollTopButton     ********** */
+.scroll-top-btn {
   position: fixed;
   z-index: 999;
   bottom: 1vh;
   right: calc(4.25rem + 1vw);
   width: 4rem;
   height: 4rem;
-
   border-radius: 50%;
   font-size: 2rem;
   font-weight: bold;
-  background-color: var(--primary-color);
-  color: var(--secondary-color); 
-  cursor:pointer;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
   outline: 0;
   border: 0;
   transition: all 0.3s ease-out;
 }
 
-.scroll-top-btn:hover{
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+.scroll-top-btn:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   opacity: 0;
 }
 
-/****************************** DarkThemeButton ***********************/
-
-.dark-theme-btn{
+/* **********     DarkThemeButton     ********** */
+.dark-theme-btn {
   position: fixed;
   z-index: 999;
   bottom: 1vh;
   left: 1vw;
   width: 4rem;
   height: 4rem;
-
   border-radius: 50%;
   font-size: 2rem;
   font-weight: bold;
-  background-color: var(--primary-color);
-  color: var(--secondary-color); 
-  cursor:pointer;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
   outline: 0;
   border: 0;
   transition: all 0.3s ease-out;
 }
 
-.dark-theme-btn:hover{
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+.dark-theme-btn:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
 }
 
-.dark-mode{
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+.dark-mode {
+  background-color: var(--second-color);
+  color: var(--main-color);
 }
 
+/* **********     Network Status     ********** */
+.online,
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #1b5e20;
+  color: #fff;
+}
+
+.offline {
+  background-color: #b71c1c;
+}
+
+/* **********     SearchFilters     ********** */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  transition: all 0.3s ease-out;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card figcaption {
+  padding: 1rem;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
+
+
+
+/********* Responsive Slider **********/
+
+.slider{
+  position: relative;
+  border: thin solid black;
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.slider-slides{
+  position: relative;
+  height: 400px;
+}
+
+.slider-slide{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+
+.slider-slide img{
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.slider-slide.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-btns{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.slider a{
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: thin solid #000;
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.slider a:hover{
+  color: #4d4d4d;
+}

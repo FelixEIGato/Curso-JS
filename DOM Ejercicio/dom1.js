@@ -6,6 +6,11 @@ import darkTheme from "./tema_oscuro.js";
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
 import userDeviceInfo from "./deteccion_dispositivos.js";
+import networkStatus from "./deteccion_red.js";
+import webCam from "./deteccion_webcam.js";
+import searchFilters from "./filtro_busqueda.js";
+import draw from "./sorteo.js";
+import slider from "./carrusel.js";
 
 const d = document;
 
@@ -59,7 +64,7 @@ function timer(inicio,parar,alarmaStart,alarmaStop){
 document.addEventListener("DOMContentLoaded",(e)=>{
 
     hamburgesa(".panel-btn",".panel",".panel a");
-    timer("#iniciarReloj","#detenerReloj","#iniciarAlarma","#detenerAlarma");
+    timer("#activar-reloj","#desactivar-reloj","#activar-alarma","#desactivar-alarma");
 
     countdown("countdown","August 25, 2021","Feliz Cumpleaños");
     scrollTopButton(".scroll-top-btn");
@@ -78,6 +83,10 @@ document.addEventListener("DOMContentLoaded",(e)=>{
 
     responsiveTester("responsive-tester");
     userDeviceInfo("user-device");
+    webCam("webcam");
+    searchFilters(".card-filter",".card");
+    draw("#winner-btn",".player");
+    slider();
 })
 
 document.addEventListener("keydown", e=>{
@@ -86,4 +95,7 @@ document.addEventListener("keydown", e=>{
 })
 
 darkTheme(".dark-theme-btn","dark-mode");
+networkStatus();
+
+
 
