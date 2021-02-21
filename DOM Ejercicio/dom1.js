@@ -13,6 +13,7 @@ import draw from "./sorteo.js";
 import slider from "./carrusel.js";
 import scrollSpy from "./scroll_espia.js";
 import smartVideo from "./video_inteligente.js";
+import contactFormValidations from "./validaciones_formulario.js";
 
 const d = document;
 
@@ -50,7 +51,7 @@ function timer(inicio,parar,alarmaStart,alarmaStop){
 
         if(e.target.matches(alarmaStart)){
             sound = new Audio();
-            sound.src = "Mevengo.mp3";
+            sound.src = "alarma.mp3";
             sound.play();
             document.querySelector(alarmaStart).disabled = true;
         }
@@ -91,6 +92,7 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     slider();
     scrollSpy();
     smartVideo();
+    contactFormValidations();
 })
 
 document.addEventListener("keydown", e=>{
