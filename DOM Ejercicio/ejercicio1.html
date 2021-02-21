@@ -160,6 +160,33 @@
         </div>
       </div>
     </section>
+
+    <section id="seccion13" class="section" data-scroll-spy>
+      <h2>Video inteligente</h2>
+      <video src="video.mp4" muted controls loop data-smart-video></video>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <video src="video.mp4" muted controls loop data-smart-video></video>
+    </section>
+
+    <section id="seccion14" class="section" data-scroll-spy>
+      <h2>Validacion de formulario</h2>
+      <form class="contact-form">
+        <legend>Envianos tus comentarios</legend>
+        <input type="text" name="name" placeholder="Escribe tu nombre" title="Nombre solo acepta letras y espacios en blanco"
+        pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+        <input type="email" name="email" placeholder="Escribe tu email" title="Email Incorrecto"
+        pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+        <input type="text" name="subject" placeholder="Asunto a tratar" title="El asunto es requerido" required>
+        <textarea name="comments" cols="50" rows="5" data-pattern="^.{1,255}$" placeholder="Escribe tus comentarios" required></textarea>
+        <input type="submit" value="Enviar">
+        <div class="contact-form-loader none">
+          <img src="oval.svg" alt="Cargando">
+        </div>
+        <div class="contact-form-response none">
+          <p>Los datos han sido enviados</p>
+        </div>
+      </form>
+    </section>
     <button class="scroll-top-btn hidden">&#11014;</button>
     <button class="dark-theme-btn">🌙</button>
     <script type="module" src="dom1.js"></script>
