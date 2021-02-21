@@ -334,7 +334,7 @@ video {
   body{
     display: grid;
     grid-template-columns: 80% 20%;
-    grid-row: 4rem auto;
+    grid-template-rows: 4rem auto;
     grid-template-areas: 
      "header header"
      "main   panel";

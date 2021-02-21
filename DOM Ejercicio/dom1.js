@@ -100,4 +100,3 @@ darkTheme(".dark-theme-btn","dark-mode");
 networkStatus();
 
 
-
