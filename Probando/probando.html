@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formulario">
+        <input id="nombre" type="text"> <br>
+        <input id="apeliido" type="text"> <br>
+    </form>
+    <button onclick="hola()">enviar</button>
+
+    <script>
+
+        function hola(){
+            let $form = document.forms["formulario"],
+             texto = '';
+            
+            for( let elementos of $form){
+                texto += elementos.value;
+            }
+            console.log(texto);
+        }
+            
+    </script>
+</body>
+</html>
