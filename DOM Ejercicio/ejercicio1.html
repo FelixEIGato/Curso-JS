@@ -170,7 +170,7 @@
 
     <section id="seccion14" class="section" data-scroll-spy>
       <h2>Validacion de formulario</h2>
-      <form class="contact-form">
+      <form class="contact-form" action="https://formsubmit.co/tcin20@gmail.com" method="POST" target="_blank">
         <legend>Envianos tus comentarios</legend>
         <input type="text" name="name" placeholder="Escribe tu nombre" title="Nombre solo acepta letras y espacios en blanco"
         pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
@@ -187,6 +187,17 @@
         </div>
       </form>
     </section>
+
+    <section id="seccion15" class="section" data-scroll-spy>
+      <h2>Narrador</h2>
+      <select id="speech-select">
+        <option value="">----Elige una Voz</option>
+      </select>
+      <br><br>
+      <textarea id="speech-text" cols="50" rows="5" placeholder="Ingresa texto para leerlo.."></textarea> <br>
+      <button id="speech-btn">Leer Texto</button>
+    </section>
+
     <button class="scroll-top-btn hidden">&#11014;</button>
     <button class="dark-theme-btn">🌙</button>
     <script type="module" src="dom1.js"></script>

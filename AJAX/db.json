@@ -1,0 +1,51 @@
+{
+  "gatos": [
+    {
+      "id": 1,
+      "nombre": "Felix",
+      "edad": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Michifu",
+      "edad": 3
+    },
+    {
+      "id": 3,
+      "nombre": "Jon",
+      "edad": 4
+    },
+    {
+      "id": 4,
+      "nombre": "Pedro",
+      "edad": 4
+    },
+    {
+      "id": 5,
+      "nombre": "Eltata",
+      "edad": 4
+    }
+  ],
+  "perros": [
+    {
+      "id": 1,
+      "nombre": "oso",
+      "edad": 4
+    },
+    {
+      "id": 2,
+      "nombre": "pardo",
+      "edad": 4
+    },
+    {
+      "id": 3,
+      "nombre": "bb",
+      "edad": 4
+    },
+    {
+      "id": 4,
+      "nombre": "lara",
+      "edad": 4
+    }
+  ]
+}
