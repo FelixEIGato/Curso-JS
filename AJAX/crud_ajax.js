@@ -1,7 +1,7 @@
 const d = document,
  $table = d.querySelector(".crud-table"),
  $form = d.querySelector(".crud-form"),
- $title = d.querySelector(".crud-title"),
+ $title = d.getElementById("crud-title"),
  $template = d.getElementById("crud-template").content,
  $fragment = d.createDocumentFragment();
 
@@ -52,4 +52,56 @@ const getAll = () =>{
     })
 }
 
-d.addEventListener("DOMContentLoaded",getAll)
+d.addEventListener("DOMContentLoaded",getAll);
+
+d.addEventListener("submit", e=>{
+    if(e.target === $form){
+        e.preventDefault();
+
+        if(!e.target.id.value){
+            ajax({
+                url:"http://localhost:3000/gatos",
+                method:"POST",
+                success: (res) => location.reload(),
+                error: () => $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+                data: {
+                    nombre: e.target.nombre.value,
+                    edad: e.target.edad.value
+                }
+            });
+        }else{
+            ajax({
+                url:`http://localhost:3000/gatos/${e.target.id.value}`,
+                method: "PUT",
+                success: (res) => location.reload(),
+                error: ()=> $form.insertAdjacentHTML("afterend",`<p><b>${err}</b></p>`),
+                data:{
+                    nombre : e.target.nombre.value,
+                    edad: e.target.edad.value
+                }
+            });
+        }
+    }
+});
+
+d.addEventListener("click",e=>{
+    if(e.target.matches(".edit")){
+        $title.textContent = "Editar Gato";
+        $form.nombre.value = e.target.dataset.name;
+        $form.edad.value = e.target.dataset.age;
+        $form.id.value = e.target.dataset.id;
+    }
+
+    if(e.target.matches(".delete")){
+        let isDelete =  confirm(`¿Estás seguro de eliminar el id: ${e.target.dataset.id}`);
+
+        if(isDelete){
+            ajax({
+                url: `http://localhost:3000/gatos/${e.target.dataset.id}`,
+                method: "DELETE",
+                success: (res) => location.reload(),
+                error: (err) => alert (err)
+            });
+        }
+    }
+})

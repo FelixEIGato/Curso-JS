@@ -21,9 +21,9 @@
       "edad": 4
     },
     {
-      "id": 5,
       "nombre": "Eltata",
-      "edad": 4
+      "edad": "4",
+      "id": 5
     }
   ],
   "perros": [
