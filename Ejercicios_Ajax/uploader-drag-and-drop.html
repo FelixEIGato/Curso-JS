@@ -66,7 +66,7 @@
 <body>
     <main>
         <article class="drop-zone">
-            <p>Arras y suelta tus archivos...</p>
+            <p>Arrastra y suelta tus archivos...</p>
         </article>
     </main>
     <script>    
@@ -85,7 +85,7 @@
 
                 if(xhr.status >= 200 && xhr.status < 300){
                     let json = JSON.parse(xhr.responseText);
-                    console.log(json);
+                    // console.log(json);
                 }else{
                     let message = xhr.statusText || "Ocurrió un error";
                     console.error(`Error ${xhr.status}: ${message}`);
@@ -122,20 +122,30 @@
                 setTimeout(()=>{
                     $main.removeChild($progress);
                     $main.removeChild($span);
-                    $files.value = "";
                 },3000);
             });
 
         }
 
-        d.addEventListener("change", e =>{
-            if(e.target === $files){
-                // console.log(e.target.files);
-                // const files = e.target.files;
+        $dropZone.addEventListener("dragover", e=>{
+            // console.log(e);
+            e.preventDefault();
+            e.stopPropagation();
+            e.target.classList.add("is-active");
+        });
 
-                const files = Array.from(e.target.files);
-                files.forEach(el => progressUpload(el));
-            }
+        $dropZone.addEventListener("dragleft", e=>{
+            e.preventDefault();
+            e.stopPropagation();
+            e.target.classList.remove("is-active");
+        });
+
+        $dropZone.addEventListener("drop",e=>{
+            e.preventDefault();
+            e.stopPropagation();
+            const files = Array.from(e.dataTransfer.files);
+            files.forEach(el => progressUpload(el));
+            e.target.classList.remove("is-active");
         });
     </script>
 </body>
