@@ -1,9 +1,9 @@
 {
   "gatos": [
     {
-      "id": 1,
       "nombre": "Felix",
-      "edad": 1
+      "edad": "1",
+      "id": 1
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "edad": 4
     },
     {
-      "nombre": "Eltata",
+      "nombre": "Eltatas",
       "edad": "4",
       "id": 5
     }
